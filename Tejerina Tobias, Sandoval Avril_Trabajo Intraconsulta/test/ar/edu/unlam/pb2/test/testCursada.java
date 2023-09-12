@@ -110,7 +110,7 @@ public class testCursada {
 		Aula aula = new Aula(12,50);
 		Turno turno = turno.MANIANA;
 		CicloLectivo cicloLectivo = new CicloLectivo(2023, 2);
-
+//TODO
 		// ejecucion
 		Curso curso = new Curso(materiaAsignada, codigoComision, aula, turno, cicloLectivo);
 
