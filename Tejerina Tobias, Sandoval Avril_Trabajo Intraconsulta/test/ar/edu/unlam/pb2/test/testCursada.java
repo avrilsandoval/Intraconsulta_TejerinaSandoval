@@ -1,8 +1,18 @@
 package ar.edu.unlam.pb2.test;
 
+import java.util.*;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import ar.edu.unlam.pb2.dominio.Alumno;
+import ar.edu.unlam.pb2.dominio.Aula;
+import ar.edu.unlam.pb2.dominio.CicloLectivo;
+import ar.edu.unlam.pb2.dominio.Curso;
+import ar.edu.unlam.pb2.dominio.Materia;
+import ar.edu.unlam.pb2.dominio.Nota;
+import ar.edu.unlam.pb2.dominio.Profesor;
+import ar.edu.unlam.pb2.dominio.Turno;
 
 public class testCursada {
 
@@ -17,6 +27,7 @@ public class testCursada {
 		// ejecucion
 		Profesor profesor = new Profesor(nombre, apellido, dni, contrasenia);
 
+		// TODO
 		// validacion
 		assertNotNull(profesor);
 	}
@@ -31,16 +42,19 @@ public class testCursada {
 
 		// ejecucion
 		Alumno alumno = new Alumno(nombre, apellido, dni, contrasenia);
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		alumnos.add(alumno);
 
 		// validacion
 		assertNotNull(alumno);
+		assertEquals(alumno, alumnos.get(0));
 	}
 
 	@Test
-	public void queSePuedaAregarUnaMateria() {
+	public void queSePuedaAgregarUnaMateria() {
 		// preparacion
-		String nombreMateria = "";
-		Integer codigoMateria = 0;
+		String nombreMateria = "Matematica";
+		Integer codigoMateria = 1245;
 
 		// ejecucion
 		Materia materia = new Materia(nombreMateria, codigoMateria);
@@ -61,22 +75,21 @@ public class testCursada {
 		// validacion
 		assertNotNull(aula);
 	}
-	
+
 	@Test
 	public void queSePuedaCrearUnCicloLectivo() {
 		// preparacion
-		Semana diaIniciacion;
-		Mes mesIniciacion; 
+
 		Integer anio = 0;
 		Integer cuatrimestre = 0;
 
 		// ejecucion
-		CicloLectivo cicloLectivo = new CicloLectivo(diaIniciacion, mesIniciacion, anio, cuatrimestre);
+		CicloLectivo cicloLectivo = new CicloLectivo(anio, cuatrimestre);
 
 		// validacion
 		assertNotNull(cicloLectivo);
 	}
-	
+
 	@Test
 	public void queSePuedaCrearUnaNota() {
 		// preparacion
@@ -87,5 +100,23 @@ public class testCursada {
 
 		// validacion
 		assertNotNull(nota);
+
 	}
+
+	public void queSePuedaCrearUnaCursada() {
+		// preparacion
+		Materia materiaAsignada = new Materia("Programacion",20);
+		Integer codigoComision = 0;
+		Aula aula = new Aula(12,50);
+		Turno turno = turno.MANIANA;
+		CicloLectivo cicloLectivo = new CicloLectivo(2023, 2);
+
+		// ejecucion
+		Curso curso = new Curso(materiaAsignada, codigoComision, aula, turno, cicloLectivo);
+
+		// validacion
+		assertNotNull(curso);
+
+	}
+
 }
