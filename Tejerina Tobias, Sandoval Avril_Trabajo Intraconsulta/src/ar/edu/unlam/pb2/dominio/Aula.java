@@ -4,8 +4,25 @@ public class Aula {
 
 	private Integer numeroAula;
 	private Integer capacidad;
+	
 	public Aula(Integer numeroAula, Integer capacidad) {
-		// TODO Auto-generated constructor stub
+		this.numeroAula = numeroAula;
+		this.capacidad = capacidad; 
 	}
 
+	public Integer getNumeroAula() {
+		return numeroAula;
+	}
+
+	public void setNumeroAula(Integer numeroAula) {
+		this.numeroAula = numeroAula;
+	}
+
+	public Integer getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(Integer capacidad) {
+		this.capacidad = capacidad;
+	}
 }

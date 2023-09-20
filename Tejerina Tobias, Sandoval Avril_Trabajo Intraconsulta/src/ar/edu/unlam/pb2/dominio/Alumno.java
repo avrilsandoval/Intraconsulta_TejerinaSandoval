@@ -1,4 +1,5 @@
 package ar.edu.unlam.pb2.dominio;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Alumno {
@@ -7,10 +8,16 @@ public class Alumno {
 	private String apellido;
 	private Integer dni;
 	private String contrasenia;
+	//private LocalDate fechaDeIngreso;
+	//private LocalDate fechaDeNacimiento;
+
+	 
 	ArrayList<String> nombreArrayList = new ArrayList<String>();
 	
 	
 	public Alumno(String nombre, String apellido, Integer dni, String contrasenia) {
+		//fechaDeIngreso = LocalDate.now();
+		//fechaDeNacimiento = LocalDate(dia,mes,anio);
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.dni=dni;
@@ -55,6 +62,16 @@ public class Alumno {
 
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
+	}
+
+
+	public LocalDate getFechaDeIngreso() {
+		return fechaDeIngreso;
+	}
+
+
+	public void setFechaDeIngreso(LocalDate fechaDeIngreso) {
+		this.fechaDeIngreso = fechaDeIngreso;
 	}
 
 	
