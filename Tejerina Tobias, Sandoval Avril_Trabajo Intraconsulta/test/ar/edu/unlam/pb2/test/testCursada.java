@@ -8,7 +8,7 @@ import org.junit.Test;
 import ar.edu.unlam.pb2.dominio.Alumno;
 import ar.edu.unlam.pb2.dominio.Aula;
 import ar.edu.unlam.pb2.dominio.CicloLectivo;
-import ar.edu.unlam.pb2.dominio.Curso;
+import ar.edu.unlam.pb2.dominio.Comision;
 import ar.edu.unlam.pb2.dominio.Materia;
 import ar.edu.unlam.pb2.dominio.Nota;
 import ar.edu.unlam.pb2.dominio.Profesor;
@@ -112,7 +112,7 @@ public class testCursada {
 		CicloLectivo cicloLectivo = new CicloLectivo(2023, 2);
 //TODO
 		// ejecucion
-		Curso curso = new Curso(materiaAsignada, codigoComision, aula, turno, cicloLectivo);
+		Comision curso = new Comision(materiaAsignada, codigoComision, aula, turno, cicloLectivo);
 
 		// validacion
 		assertNotNull(curso);

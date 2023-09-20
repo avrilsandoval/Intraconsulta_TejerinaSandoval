@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.dominio;
 
-public class Curso {
+public class Comision {
 
 	private Materia materiaAsignada;
 	private Integer codigoComision;
@@ -8,7 +8,7 @@ public class Curso {
 	private Turno turno;
 	private CicloLectivo cicloLectivo;
 
-	public Curso(Materia materiaAsignada, Integer codigoComision, Aula aula, Turno turno, CicloLectivo cicloLectivo) {
+	public Comision(Materia materiaAsignada, Integer codigoComision, Aula aula, Turno turno, CicloLectivo cicloLectivo) {
 		this.materiaAsignada = materiaAsignada;
 		this.codigoComision = codigoComision;
 		this.aula = aula;
