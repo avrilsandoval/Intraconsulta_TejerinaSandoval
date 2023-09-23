@@ -15,7 +15,7 @@ public class Alumno {
 	ArrayList<String> nombreArrayList = new ArrayList<String>();
 	
 	
-	public Alumno(String nombre, String apellido, Integer dni, String contrasenia) {
+	public Alumno(String nombre, String apellido,String contrasenia,Integer dni) {
 		//fechaDeIngreso = LocalDate.now();
 		//fechaDeNacimiento = LocalDate(dia,mes,anio);
 		this.nombre=nombre;
