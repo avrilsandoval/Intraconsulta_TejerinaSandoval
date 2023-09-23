@@ -4,8 +4,8 @@ public class CicloLectivo {
 
 	
 	private Integer anio = 0;
-	private Integer cuatrimestre = 0;
-	public CicloLectivo(Integer anio, Integer cuatrimestre) {
+	private Cuatrimestre cuatrimestre;
+	public CicloLectivo(Integer anio, Cuatrimestre cuatrimestre) {
 		
 		this.anio = anio;
 		this.cuatrimestre = cuatrimestre;
@@ -17,12 +17,13 @@ public class CicloLectivo {
 	public void setAnio(Integer anio) {
 		this.anio = anio;
 	}
-	public Integer getCuatrimestre() {
+
+	public Cuatrimestre getCuatrimestre() {
 		return cuatrimestre;
 	}
-	public void setCuatrimestre(Integer cuatrimestre) {
+
+	public void setCuatrimestre(Cuatrimestre cuatrimestre) {
 		this.cuatrimestre = cuatrimestre;
 	}
-	
 	
 }

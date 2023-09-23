@@ -1,16 +1,22 @@
 package ar.edu.unlam.pb2.dominio;
 
+import java.util.ArrayList;
+
 public class Comision {
 
+	private static Integer id = 0;
 	private Materia materiaAsignada;
 	private Integer codigoComision;
 	private Aula aula;
 	private Turno turno;
 	private CicloLectivo cicloLectivo;
-
-	public Comision(Materia materiaAsignada, Integer codigoComision, Aula aula, Turno turno, CicloLectivo cicloLectivo) {
+	private ArrayList<Alumno> alumnos;
+	private ArrayList<Profesor> profesores;
+	public Comision(Materia materiaAsignada, Aula aula, Turno turno, CicloLectivo cicloLectivo, ArrayList<Alumno> alumnos,ArrayList<Profesor> profesores) {
 		this.materiaAsignada = materiaAsignada;
-		this.codigoComision = codigoComision;
+		this.alumnos = alumnos;
+		this.profesores = profesores;
+		this.codigoComision = id++;
 		this.aula = aula;
 		this.turno = turno;
 		this.cicloLectivo = cicloLectivo;
@@ -54,6 +60,22 @@ public class Comision {
 
 	public void setCicloLectivo(CicloLectivo cicloLectivo) {
 		this.cicloLectivo = cicloLectivo;
+	}
+
+	public ArrayList<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(ArrayList<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
+
+	public ArrayList<Profesor> getProfesores() {
+		return profesores;
+	}
+
+	public void setProfesores(ArrayList<Profesor> profesores) {
+		this.profesores = profesores;
 	}
 
 }

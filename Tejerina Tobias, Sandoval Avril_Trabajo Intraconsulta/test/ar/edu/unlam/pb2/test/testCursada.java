@@ -9,6 +9,7 @@ import ar.edu.unlam.pb2.dominio.Alumno;
 import ar.edu.unlam.pb2.dominio.Aula;
 import ar.edu.unlam.pb2.dominio.CicloLectivo;
 import ar.edu.unlam.pb2.dominio.Comision;
+import ar.edu.unlam.pb2.dominio.Cuatrimestre;
 import ar.edu.unlam.pb2.dominio.Materia;
 import ar.edu.unlam.pb2.dominio.Nota;
 import ar.edu.unlam.pb2.dominio.Profesor;
@@ -26,19 +27,19 @@ public class testCursada {
 		ArrayList<Materia> materias = new ArrayList<Materia>();
 		ArrayList<Comision> comisiones = new ArrayList<Comision>();
 
-		
 		// ejecucion
 		Universidad universidad = new Universidad(nombre, profesores, alumnos, materias, comisiones);
 
 		// validacion
 		assertNotNull(universidad);
 	}
+
 	@Test
-	public void queSePuedaLoguearUnProfesor() {
+	public void queSePuedaLoguearUnProfesorAUnaUniversidad() {
 		// preparacion
 		String nombre = "Sergei";
 		String apellido = "";
-		Integer dni = 00000000; // usuario para ingresar
+		Integer dni = 45646484; // usuario para ingresar
 		String contrasenia = "";
 		String nombreUniversidad = "";
 		ArrayList<Profesor> profesores = new ArrayList<Profesor>();
@@ -49,11 +50,14 @@ public class testCursada {
 		// ejecucion
 		Profesor profesor = new Profesor(nombre, apellido, dni, contrasenia);
 		Universidad universidad = new Universidad(nombreUniversidad, profesores, alumnos, materias, comisiones);
-		
+		universidad.agregarProfesor(profesor);
+		profesores.add(profesor);
+		// TODO
 		// validacion
 		assertNotNull(profesor);
 		assertNotNull(universidad);
-		assertNotNull(universidad.getProfesores(0));
+		// assertEquals(profesor.getDni(),profesores.get(0).getDni());
+		// TODO assertEquals(profesor.getDni(), universidad.getProfesores(dni));
 	}
 
 	@Test
@@ -61,7 +65,7 @@ public class testCursada {
 		// preparacion
 		String nombre = "";
 		String apellido = "";
-		Integer dni = 00000000; // usuario para ingresar
+		Integer dni = 46564678; // usuario para ingresar
 		String contrasenia = "";
 		// LocalDate fechaIngreso;
 
@@ -72,10 +76,54 @@ public class testCursada {
 
 		// validacion
 		assertNotNull(alumno);
-		assertEquals(alumno, alumnos.get(0));
-		alumno.getDni();
+		assertEquals(alumno.getDni(), alumnos.get(0).getDni());
+	}
+	@Test
+	public void queSePuedaIngresarUnAlumnoAUnaComision() {
+		// preparacion
+		String nombre = "";
+		String apellido = "";
+		Integer dni = 46564678; // usuario para ingresar
+		String contrasenia = "";
+		// LocalDate fechaIngreso;
+		String nombreMateria = "pb2";
+		Materia materia = new Materia(nombreMateria);
+		Aula aula = new Aula(215,50);
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		ArrayList<Profesor> profesores = new ArrayList<Profesor>();
+		CicloLectivo cicloLectivo = new CicloLectivo(2023,Cuatrimestre.SEGUNDO_CUATRIMESTRE);
+		Comision comision = new Comision(materia, aula, Turno.MANIANA, cicloLectivo,alumnos, profesores);
+		
+		// ejecucion
+		Alumno alumno = new Alumno(nombre, apellido, dni, contrasenia);
+		
+		comision
+
+		// validacion
+		assertNotNull(alumno);
+		assertEquals(alumno.getDni(), alumnos.get(0).getDni());
+	}
+	@Test
+	public void queSePuedaAgregarCorrelativaAUnaMateria() {
+		// preparacion
+		String nombre = "";
+		String apellido = "";
+		Integer dni = 46564678; // usuario para ingresar
+		String contrasenia = "";
+		// LocalDate fechaIngreso;
+
+		// ejecucion
+		Alumno alumno = new Alumno(nombre, apellido, dni, contrasenia);
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		alumnos.add(alumno);
+
+		// validacion
+		assertNotNull(alumno);
+		assertEquals(alumno.getDni(), alumnos.get(0).getDni());
 	}
 
+	
+	
 	@Test
 	public void queSePuedaAgregarUnaMateria() {
 		// preparacion
@@ -122,7 +170,7 @@ public class testCursada {
 		// preparacion
 
 		Integer anio = 0;
-		Integer cuatrimestre = 0;
+		Cuatrimestre cuatrimestre = Cuatrimestre.SEGUNDO_CUATRIMESTRE;
 
 		// ejecucion
 		CicloLectivo cicloLectivo = new CicloLectivo(anio, cuatrimestre);
@@ -144,14 +192,14 @@ public class testCursada {
 
 	public void queSePuedaCrearUnaCursada() {
 		// preparacion
-		Materia materiaAsignada = new Materia("Programacion", 20);
+		Materia materiaAsignada = new Materia("Programacion");
 		Integer codigoComision = 0;
 		Aula aula = new Aula(12, 50);
 		Turno turno = Turno.MANIANA;
-		CicloLectivo cicloLectivo = new CicloLectivo(2023, 2);
+		CicloLectivo cicloLectivo = new CicloLectivo(2023, Cuatrimestre.PRIMER_CUATRIMESTRE);
 
 		// ejecucion
-		Comision curso = new Comision(materiaAsignada, codigoComision, aula, turno, cicloLectivo);
+		Comision curso = new Comision(materiaAsignada, aula, turno, cicloLectivo);
 
 		// validacion
 		assertNotNull(curso);
