@@ -29,53 +29,47 @@ public class Universidad {
 	}
 
 	public Profesor getProfesor(int dni) {
-		boolean seEncontro = true;
+		boolean seEncontro = false;
 		Profesor profesorEncontrado = null;
-		for (int i = 0; i < this.profesores.size() && seEncontro==false; i++) {
+		for (int i = 0; i < this.profesores.size() && seEncontro == false; i++) {
 			if (this.profesores.get(i).getDni().equals(dni)) {
-				profesorEncontrado = this.profesores.get(i);				
-				seEncontro = true;			
+				profesorEncontrado = this.profesores.get(i);
+				seEncontro = true;
 			}
 		}
 		return profesorEncontrado;
 	}
 
 	public void agregarProfesor(Profesor profesorAAgregar) {
-		boolean profesorAgregado = false;
-		while(profesorAgregado == false) {
-			int i = 1;
-			if (this.profesores.get(i).equals(null)) {
-				this.profesores.add(profesorAAgregar);
-				profesorAgregado = true;
+		if (this.profesores.size() == 0) {
+			this.profesores.add(profesorAAgregar);
+		} else {
+				if (getProfesor(profesorAAgregar.getDni()) == null) {
+					this.profesores.add(profesorAAgregar);
 			}
-			i++;
 		}
 	}
 
-	public boolean inscribirAlumnoAMateria(Alumno alumnoAInscribir, Materia materia, Date fechaInscripcion) {
-		boolean sePudoInscribir = false;
-
-		if (alumnos.contains(alumnoAInscribir) && materia.buscarAlumno(alumnoAInscribir) == null) {
-			materia.inscribirAlumno(alumnoAInscribir);
-			sePudoInscribir = true;
+	public Alumno getAlumno(int dni) {
+		boolean seEncontro = false;
+		Alumno alumnoEncontrado = null;
+		for (int i = 0; i < this.alumnos.size() && seEncontro == false; i++) {
+			if (this.alumnos.get(i).getDni().equals(dni)) {
+				alumnoEncontrado = this.alumnos.get(i);
+				seEncontro = true;
+			}
 		}
-		return sePudoInscribir;
-	}
-	
-	public boolean inscribirAlumnoDeUnaMateriaAComision(Alumno alumnoAInscribir,  Materia materia, Date fechaInscripcion) {
-		boolean sePudoInscribir = false;
-		
-			if(inscribirAlumnoAMateria(alumnoAInscribir, materia,fechaInscripcion))
-		
-		return sePudoInscribir;
-	}
-	
-	public ArrayList<Alumno> getAlumnos() {
-		return alumnos;
+		return alumnoEncontrado;
 	}
 
-	public void setAlumnos(ArrayList<Alumno> alumnos) {
-		this.alumnos = alumnos;
+	public void agregarAlumno(Alumno alumnoAAgregar) {
+		if (this.alumnos.size() == 0) {
+			this.alumnos.add(alumnoAAgregar);
+		} else {
+				if (getProfesor(alumnoAAgregar.getDni()) == null) {
+					this.alumnos.add(alumnoAAgregar);
+				}
+		}
 	}
 
 	public ArrayList<Materia> getMaterias() {

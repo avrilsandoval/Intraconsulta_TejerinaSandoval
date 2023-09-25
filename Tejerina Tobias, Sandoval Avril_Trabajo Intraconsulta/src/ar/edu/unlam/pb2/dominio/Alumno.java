@@ -7,21 +7,15 @@ public class Alumno {
 	private String nombre;
 	private String apellido;
 	private Integer dni;
-	private String contrasenia;
-	//private LocalDate fechaDeIngreso;
-	//private LocalDate fechaDeNacimiento;
-
-	 
-	ArrayList<String> nombreArrayList = new ArrayList<String>();
+	private LocalDate fechaDeIngreso;
+	private Date fechaDeNacimiento;
 	
 	
-	public Alumno(String nombre, String apellido,String contrasenia,Integer dni) {
-		//fechaDeIngreso = LocalDate.now();
-		//fechaDeNacimiento = LocalDate(dia,mes,anio);
+	public Alumno(String nombre, String apellido,Integer dni,Integer anio,Integer mes,Integer dia) {
+		this.fechaDeNacimiento = new Date(dia,mes,anio);
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.dni=dni;
-		this.contrasenia=contrasenia;
 	}
 
 
@@ -52,16 +46,6 @@ public class Alumno {
 
 	public void setDni(Integer dni) {
 		this.dni = dni;
-	}
-
-
-	public String getContrasenia() {
-		return contrasenia;
-	}
-
-
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
 	}
 
 

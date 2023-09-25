@@ -1,6 +1,8 @@
 package ar.edu.unlam.pb2.dominio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Comision {
 
@@ -12,7 +14,9 @@ public class Comision {
 	private CicloLectivo cicloLectivo;
 	private ArrayList<Alumno> alumnos;
 	private ArrayList<Profesor> profesores;
-	public Comision(Materia materiaAsignada, Aula aula, Turno turno, CicloLectivo cicloLectivo, ArrayList<Alumno> alumnos,ArrayList<Profesor> profesores) {
+
+	public Comision(Materia materiaAsignada, Aula aula, Turno turno, CicloLectivo cicloLectivo,
+			ArrayList<Alumno> alumnos, ArrayList<Profesor> profesores) {
 		this.materiaAsignada = materiaAsignada;
 		this.alumnos = alumnos;
 		this.profesores = profesores;
@@ -76,6 +80,18 @@ public class Comision {
 
 	public void setProfesores(ArrayList<Profesor> profesores) {
 		this.profesores = profesores;
+	}
+
+	public Alumno buscarAlumnoEnComision(Integer dni) {
+		boolean seEncontro = false;
+		Alumno alumnoEncontrado = null;
+		for (int i = 0; i < this.alumnos.size() && seEncontro == false; i++) {
+			if (this.alumnos.get(i).getDni().equals(dni)) {
+				alumnoEncontrado = this.alumnos.get(i);
+				seEncontro = true;
+			}
+		}
+		return alumnoEncontrado;
 	}
 
 }

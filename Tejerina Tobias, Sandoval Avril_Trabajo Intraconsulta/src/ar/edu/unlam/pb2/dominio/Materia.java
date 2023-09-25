@@ -1,6 +1,8 @@
 package ar.edu.unlam.pb2.dominio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Materia {
 
@@ -8,7 +10,7 @@ public class Materia {
 	private static Integer id = 0;
 	private Integer codigoMateria;
 	private ArrayList<Materia> materiasCorrelativas;
-	private ArrayList<Alumno> alumnosInscriptos;
+	private ArrayList<Alumno> alumnos;
 	private boolean aprobada;
 	
 	public Materia(String nombreMateria) {
@@ -45,25 +47,43 @@ public class Materia {
 	}
 
 	public void inscribirAlumno(Alumno alumno) {
-		for (int i = 0; i < this.alumnosInscriptos.size(); i++) {
-			if (this.alumnosInscriptos.get(i) == null) {
-				this.alumnosInscriptos.add(alumno);
+		for (int i = 0; i < this.alumnos.size(); i++) {
+			if (this.alumnos.get(i) == null) {
+				this.alumnos.add(alumno);
 			}
 		}
 	}
 
-	public Alumno buscarAlumno(Alumno alumno) {
-		Alumno alumnoBuscado = null;
-		for (int i = 0; i < this.alumnosInscriptos.size(); i++) {
-			if (this.alumnosInscriptos.get(i).getDni().equals(alumno.getDni())) {
-				alumnoBuscado = this.alumnosInscriptos.get(i);
+	public Alumno getAlumno(int dni) {
+		boolean seEncontro = false;
+		Alumno alumnoEncontrado = null;
+		for (int i = 0; i < this.alumnos.size() && seEncontro == false; i++) {
+			if (this.alumnos.get(i).getDni().equals(dni)) {
+				alumnoEncontrado = this.alumnos.get(i);
+				seEncontro = true;
 			}
 		}
-		return alumnoBuscado;
-	}
+		return alumnoEncontrado;
+		}
+	
+	public boolean inscribirAlumnoAMateria(Alumno alumnoAInscribir, Materia materia) {
+		boolean sePudoInscribir = false;
 
+		if (materia.getAlumno(alumnoAInscribir.getDni()) == null) {
+
+			// TODO falta hacer fechaInscripcion
+
+			materia.inscribirAlumno(alumnoAInscribir);
+			sePudoInscribir = true;
+
+		}
+		return sePudoInscribir;
+	
+	}
+	
+	
 	public void setAlumnosInscriptos(ArrayList<Alumno> alumnosInscriptos) {
-		this.alumnosInscriptos = alumnosInscriptos;
+		this.alumnos = alumnosInscriptos;
 	}
 
 	public boolean isAprobada() {

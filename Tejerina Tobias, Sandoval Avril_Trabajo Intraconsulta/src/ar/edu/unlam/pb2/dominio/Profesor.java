@@ -5,13 +5,11 @@ public class Profesor {
 	private String nombre;
 	private String apellido;
 	private Integer dni;
-	private String contrasenia;
 	
-	public Profesor(String nombre, String apellido, Integer dni, String contrasenia) {
+	public Profesor(String nombre, String apellido, Integer dni) {
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.dni=dni;
-		this.contrasenia=contrasenia;
 	}
 
 	public String getNombre() {
@@ -37,14 +35,4 @@ public class Profesor {
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
-
-	public String getContrasenia() {
-		return contrasenia;
-	}
-
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
-	}
-
-	
 }
