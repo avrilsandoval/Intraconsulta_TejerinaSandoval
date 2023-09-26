@@ -44,8 +44,8 @@ public class Universidad {
 		if (this.profesores.size() == 0) {
 			this.profesores.add(profesorAAgregar);
 		} else {
-				if (getProfesor(profesorAAgregar.getDni()) == null) {
-					this.profesores.add(profesorAAgregar);
+			if (getProfesor(profesorAAgregar.getDni()) == null) {
+				this.profesores.add(profesorAAgregar);
 			}
 		}
 	}
@@ -66,9 +66,9 @@ public class Universidad {
 		if (this.alumnos.size() == 0) {
 			this.alumnos.add(alumnoAAgregar);
 		} else {
-				if (getProfesor(alumnoAAgregar.getDni()) == null) {
-					this.alumnos.add(alumnoAAgregar);
-				}
+			if (getProfesor(alumnoAAgregar.getDni()) == null) {
+				this.alumnos.add(alumnoAAgregar);
+			}
 		}
 	}
 
@@ -86,6 +86,69 @@ public class Universidad {
 
 	public void setComisiones(ArrayList<Comision> comisiones) {
 		this.comisiones = comisiones;
+	}
+
+	public boolean tieneCorrelativasAprobadas(Alumno alumnoAIngresar, Materia materiaAsignada) {
+		boolean tieneCorrelativasAprobadas = false;
+
+		if (materiaAsignada.getNota() >= 4) {
+			tieneCorrelativasAprobadas = true;
+		}
+		return tieneCorrelativasAprobadas;
+	}
+
+	public boolean estaDentroDeFechaInscripcion(CicloLectivo cicloLectivo) {
+		return cicloLectivo.estaDentroDeFechaInscripcion();
+	}
+
+	public boolean cabeAlumnoEnAula(Comision comision, Aula aula) {
+		// Obtener la cantidad de alumnos inscritos en la comisión
+		int alumnosInscritos = comision.getAlumnosInscritos();
+
+		// Obtener la capacidad máxima del aula
+		int capacidadAula = aula.getCapacidad();
+
+		// Verificar si hay suficiente capacidad en el aula
+		return alumnosInscritos < capacidadAula;
+	}
+
+	public boolean tieneInscripcionEnMismoDiaYTurno(Alumno alumno, CicloLectivo cicloLectivo, Comision comision) {
+        // Obtener las inscripciones del alumno en el ciclo lectivo
+        ArrayList<Inscripcion> inscripcionesAlumno = getInscripcionesAlumno(alumno, cicloLectivo);
+
+        // Recorrer las inscripciones y verificar si hay una en el mismo día y turno
+        for (Inscripcion inscripcion : inscripcionesAlumno) {
+            if (inscripcion.getMismoDiaYTurno(comision)) {
+                return true; // El alumno ya está inscrito en una comisión en el mismo día y turno
+            }
+        }
+
+        return false; // El alumno no tiene inscripción en el mismo día y turno
+    }
+	
+	private ArrayList<Inscripcion> getInscripcionesAlumno(Alumno alumno, CicloLectivo cicloLectivo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean asignarMateriasAprobadas(Alumno alumnoAIngresar, Materia materiaAsignada) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean estaInscritoEnMateria(Alumno alumnoAIngresar, Materia materiaAsignada) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void inscribirAlumnoAComision(Alumno alumnoAIngresar, Comision comision) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public boolean estaInscritoEnComision(Alumno alumnoAIngresar, Comision comision) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

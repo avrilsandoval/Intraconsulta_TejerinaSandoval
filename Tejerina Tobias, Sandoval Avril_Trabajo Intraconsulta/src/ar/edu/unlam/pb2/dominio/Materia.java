@@ -11,12 +11,10 @@ public class Materia {
 	private Integer codigoMateria;
 	private ArrayList<Materia> materiasCorrelativas;
 	private ArrayList<Alumno> alumnos;
-	private boolean aprobada;
 	
 	public Materia(String nombreMateria) {
 		this.codigoMateria = id++;
 		this.nombreMateria = nombreMateria;
-		this.aprobada = false;
 	}
 
 	public String getNombreMateria() {
@@ -86,13 +84,9 @@ public class Materia {
 		this.alumnos = alumnosInscriptos;
 	}
 
-	public boolean isAprobada() {
-		return aprobada;
+	public int getNota() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	public void setAprobada(boolean aprobada) {
-		this.aprobada = aprobada;
-	}
-
-	
 }

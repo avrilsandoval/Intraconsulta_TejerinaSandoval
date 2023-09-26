@@ -2,11 +2,12 @@ package ar.edu.unlam.pb2.dominio;
 
 public class Aula {
 
-	private Integer numeroAula;
+	private static Integer incremental = 0;
 	private Integer capacidad;
+	private Integer numeroAula;
 	
-	public Aula(Integer numeroAula, Integer capacidad) {
-		this.numeroAula = numeroAula;
+	public Aula(Integer capacidad) {
+		this.numeroAula = incremental++;
 		this.capacidad = capacidad; 
 	}
 

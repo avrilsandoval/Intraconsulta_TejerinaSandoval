@@ -9,10 +9,11 @@ public class Alumno {
 	private Integer dni;
 	private LocalDate fechaDeIngreso;
 	private Date fechaDeNacimiento;
+	private ArrayList<Materia> materiasAprobadas;
 	
 	
-	public Alumno(String nombre, String apellido,Integer dni,Integer anio,Integer mes,Integer dia) {
-		this.fechaDeNacimiento = new Date(dia,mes,anio);
+	public Alumno(String nombre, String apellido,Integer dni) {
+	//	this.fechaDeNacimiento = new Date(dia,mes,anio);
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.dni=dni;
@@ -57,6 +58,9 @@ public class Alumno {
 	public void setFechaDeIngreso(LocalDate fechaDeIngreso) {
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
-
 	
+	public void asignarMateriasAprobadas (Materia materia) {
+		if ()
+		materiasAprobadas.add(materia);
+	}
 }

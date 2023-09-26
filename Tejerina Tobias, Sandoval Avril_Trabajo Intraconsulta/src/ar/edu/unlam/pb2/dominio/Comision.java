@@ -42,8 +42,8 @@ public class Comision {
 		this.codigoComision = codigoComision;
 	}
 
-	public Aula getAula() {
-		return aula;
+	public Integer getCapacidadAula() {
+		return this.aula.getCapacidad();
 	}
 
 	public void setAula(Aula aula) {
@@ -94,4 +94,34 @@ public class Comision {
 		return alumnoEncontrado;
 	}
 
+	public void agregarAlumno(Alumno alumno) {
+		if(aula.getCapacidad() > alumnos.size()) {
+			alumnos.add(alumno);
+		}
+	}
+	
+	public Profesor buscarProfesorEnComision(Integer dni) {
+		boolean seEncontro = false;
+		Profesor profesorEncontrado = null;
+		for (int i = 0; i < this.profesores.size() && seEncontro == false; i++) {
+			if (this.profesores.get(i).getDni().equals(dni)) {
+				profesorEncontrado = this.profesores.get(i);
+				seEncontro = true;
+			}
+		}
+		return profesorEncontrado;
+	}
+	
+	public void agregarProfesor(Profesor profesor) {
+		profesores.add(profesor);
+	}
+
+	public Integer getAlumnosInscritos() {
+		return alumnos.size();
+	}
+
+	public Object getDia() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
