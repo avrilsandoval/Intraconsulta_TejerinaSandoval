@@ -1,5 +1,4 @@
 package ar.edu.unlam.pb2.dominio;
-import java.time.LocalDate;
 import java.util.*;
 
 public class Alumno {
@@ -7,16 +6,14 @@ public class Alumno {
 	private String nombre;
 	private String apellido;
 	private Integer dni;
-	private LocalDate fechaDeIngreso;
-	private Date fechaDeNacimiento;
 	private ArrayList<Materia> materiasAprobadas;
+	private Calendar fechaNacimiento;
 	
-	
-	public Alumno(String nombre, String apellido,Integer dni) {
-	//	this.fechaDeNacimiento = new Date(dia,mes,anio);
+	public Alumno(String nombre, String apellido,Integer dni, Calendar fechaNacimiento) {
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.dni=dni;
+		this.fechaNacimiento= fechaNacimiento;
 	}
 
 
@@ -49,15 +46,6 @@ public class Alumno {
 		this.dni = dni;
 	}
 
-
-	public LocalDate getFechaDeIngreso() {
-		return fechaDeIngreso;
-	}
-
-
-	public void setFechaDeIngreso(LocalDate fechaDeIngreso) {
-		this.fechaDeIngreso = fechaDeIngreso;
-	}
 	
 	public void asignarMateriasAprobadas (Materia materia) {
 		if ()

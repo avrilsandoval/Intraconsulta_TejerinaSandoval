@@ -1,17 +1,19 @@
 package ar.edu.unlam.pb2.dominio;
+import java.util.Calendar;
 import java.util.Date;
 
 public class CicloLectivo {
 
 	private Integer anio = 0;
 	private Cuatrimestre cuatrimestre;
-    private Date fechaInicioInscripcion;
-    private Date fechaFinInscripcion;
+    private Calendar fechaInicioInscripcion;
+    private Calendar fechaFinInscripcion;
 
-    public CicloLectivo(Date fechaInicio, Date fechaFin) {
+    public CicloLectivo(Calendar fechaInicio, Calendar fechaFinal) {
         this.fechaInicioInscripcion = fechaInicio;
-        this.fechaFinInscripcion = fechaFin;
+        this.fechaFinInscripcion = fechaFinal;
 	}
+
 
 	public Integer getAnio() {
 		return anio;

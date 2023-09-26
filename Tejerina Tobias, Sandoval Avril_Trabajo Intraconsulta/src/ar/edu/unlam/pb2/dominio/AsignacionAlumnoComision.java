@@ -1,21 +1,21 @@
 package ar.edu.unlam.pb2.dominio;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 public class AsignacionAlumnoComision {
-	private GregorianCalendar fecha;
+	private Calendar fecha;
 	private static Integer id = 0;
 	private ArrayList<Integer> notas;
 	boolean aprobado;
 
-	public AsignacionAlumnoComision(Integer anio, Integer mes, Integer dia) {
-		this.fecha = new GregorianCalendar(anio, mes - 1, dia);
+	public AsignacionAlumnoComision(Calendar fechaInscripcion) {
+		this.fecha = fechaInscripcion;
 		id++;
 	}
 
 	public void inscribirAlumnoDeUnaMateriaAComision(Alumno alumnoAInscribir, Materia materia, Comision comision) {
-		if (materia.inscribirAlumnoAMateria(alumnoAInscribir, materia)
+		if (materia.getAlumno(alumnoAInscribir.getDni()).getDni().equals((alumnoAInscribir).getDni())
 				&& comision.buscarAlumnoEnComision(alumnoAInscribir.getDni()) == null) {
 			comision.agregarAlumno(alumnoAInscribir);
 		}

@@ -28,7 +28,7 @@ public class Universidad {
 		this.nombre = nombre;
 	}
 
-	public Profesor getProfesor(int dni) {
+	public Profesor getProfesorConDni(int dni) {
 		boolean seEncontro = false;
 		Profesor profesorEncontrado = null;
 		for (int i = 0; i < this.profesores.size() && seEncontro == false; i++) {
@@ -40,16 +40,28 @@ public class Universidad {
 		return profesorEncontrado;
 	}
 
+	public Profesor getProfesoresConIndice(int indice) {
+		Profesor profesorEncontrado = null;
+		if(profesores.get(indice) != null) {
+			profesorEncontrado = profesores.get(indice);
+		}
+		return profesorEncontrado;
+	}
+
+	
 	public void agregarProfesor(Profesor profesorAAgregar) {
 		if (this.profesores.size() == 0) {
 			this.profesores.add(profesorAAgregar);
 		} else {
-			if (getProfesor(profesorAAgregar.getDni()) == null) {
+			if (getProfesorConDni(profesorAAgregar.getDni()) == null) {
 				this.profesores.add(profesorAAgregar);
 			}
 		}
 	}
 
+	
+	
+	
 	public Alumno getAlumno(int dni) {
 		boolean seEncontro = false;
 		Alumno alumnoEncontrado = null;
@@ -66,7 +78,7 @@ public class Universidad {
 		if (this.alumnos.size() == 0) {
 			this.alumnos.add(alumnoAAgregar);
 		} else {
-			if (getProfesor(alumnoAAgregar.getDni()) == null) {
+			if (getAlumno(alumnoAAgregar.getDni()) == null) {
 				this.alumnos.add(alumnoAAgregar);
 			}
 		}

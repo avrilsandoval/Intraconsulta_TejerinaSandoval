@@ -64,18 +64,17 @@ public class Materia {
 		return alumnoEncontrado;
 		}
 	
-	public boolean inscribirAlumnoAMateria(Alumno alumnoAInscribir, Materia materia) {
+	public Alumno inscribirAlumnoAMateria(Alumno alumnoAInscribir, Materia materia) {
+		Alumno alumnoInscripto = null;
 		boolean sePudoInscribir = false;
-
-		if (materia.getAlumno(alumnoAInscribir.getDni()) == null) {
+		if (materia.getAlumno(alumnoAInscribir.getDni()).equals(null) && sePudoInscribir) {
 
 			// TODO falta hacer fechaInscripcion
-
 			materia.inscribirAlumno(alumnoAInscribir);
+			alumnoInscripto = materia.getAlumno(alumnoAInscribir.getDni());
 			sePudoInscribir = true;
-
 		}
-		return sePudoInscribir;
+		return alumnoInscripto;
 	
 	}
 	
