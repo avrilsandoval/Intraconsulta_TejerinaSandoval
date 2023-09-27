@@ -27,7 +27,7 @@ public class Comision {
 	}
 
 	public Materia getMateriaAsignada() {
-		return materiaAsignada;
+		return this.materiaAsignada;
 	}
 
 	public void setMateriaAsignada(Materia materiaAsignada) {
@@ -35,7 +35,7 @@ public class Comision {
 	}
 
 	public Integer getCodigoComision() {
-		return codigoComision;
+		return this.codigoComision;
 	}
 
 	public void setCodigoComision(Integer codigoComision) {
@@ -95,8 +95,8 @@ public class Comision {
 	}
 
 	public void agregarAlumno(Alumno alumno) {
-		if(aula.getCapacidad() > alumnos.size()) {
-			alumnos.add(alumno);
+		if(this.aula.getCapacidad() > this.alumnos.size()) {
+			this.alumnos.add(alumno);
 		}
 	}
 	
@@ -113,11 +113,11 @@ public class Comision {
 	}
 	
 	public void agregarProfesor(Profesor profesor) {
-		profesores.add(profesor);
+		this.profesores.add(profesor);
 	}
 
 	public Integer getAlumnosInscritos() {
-		return alumnos.size();
+		return this.alumnos.size();
 	}
 
 	public Object getDia() {

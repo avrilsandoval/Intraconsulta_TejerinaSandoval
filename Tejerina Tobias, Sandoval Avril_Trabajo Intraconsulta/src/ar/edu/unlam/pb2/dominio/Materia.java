@@ -1,8 +1,6 @@
 package ar.edu.unlam.pb2.dominio;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Materia {
 
@@ -11,7 +9,7 @@ public class Materia {
 	private Integer codigoMateria;
 	private ArrayList<Materia> materiasCorrelativas;
 	private ArrayList<Alumno> alumnos;
-	
+
 	public Materia(String nombreMateria) {
 		this.codigoMateria = id++;
 		this.nombreMateria = nombreMateria;
@@ -38,10 +36,7 @@ public class Materia {
 	}
 
 	public void setMateriasCorrelativas(Materia materia) {
-		if() {
-			
-		}
-		this.materiasCorrelativas = materiasCorrelativas;
+		this.materiasCorrelativas.add(materia);
 	}
 
 	public void inscribirAlumno(Alumno alumno) {
@@ -55,15 +50,19 @@ public class Materia {
 	public Alumno getAlumno(int dni) {
 		boolean seEncontro = false;
 		Alumno alumnoEncontrado = null;
-		for (int i = 0; i < this.alumnos.size() && seEncontro == false; i++) {
-			if (this.alumnos.get(i).getDni().equals(dni)) {
-				alumnoEncontrado = this.alumnos.get(i);
-				seEncontro = true;
+		for (int i = 0; seEncontro == false; i++) {
+			if (this.alumnos.size() == 0) {
+				seEncontro = false;
+				}else {
+					if (this.alumnos.get(i).getDni().equals(dni)) {
+						alumnoEncontrado = this.alumnos.get(i);
+						seEncontro = true;
+				}
 			}
 		}
 		return alumnoEncontrado;
-		}
-	
+	}
+
 	public Alumno inscribirAlumnoAMateria(Alumno alumnoAInscribir, Materia materia) {
 		Alumno alumnoInscripto = null;
 		boolean sePudoInscribir = false;
@@ -75,10 +74,9 @@ public class Materia {
 			sePudoInscribir = true;
 		}
 		return alumnoInscripto;
-	
+
 	}
-	
-	
+
 	public void setAlumnosInscriptos(ArrayList<Alumno> alumnosInscriptos) {
 		this.alumnos = alumnosInscriptos;
 	}

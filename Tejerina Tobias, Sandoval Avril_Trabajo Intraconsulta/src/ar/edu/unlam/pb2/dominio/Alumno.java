@@ -7,6 +7,7 @@ public class Alumno {
 	private String apellido;
 	private Integer dni;
 	private ArrayList<Materia> materiasAprobadas;
+	private ArrayList<Comision> comisiones;
 	private Calendar fechaNacimiento;
 	
 	public Alumno(String nombre, String apellido,Integer dni, Calendar fechaNacimiento) {
@@ -46,9 +47,11 @@ public class Alumno {
 		this.dni = dni;
 	}
 
-	
-	public void asignarMateriasAprobadas (Materia materia) {
-		if ()
+
+	public void agregarMateriasAprobadas(Materia materia, AsignacionAlumnoComision asignacionAlumnoComision) {
+		// TODO Auto-generated method stub
+		if(asignacionAlumnoComision.isAlumnoAprobado()) {
 		materiasAprobadas.add(materia);
+		}
 	}
 }

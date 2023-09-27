@@ -22,7 +22,7 @@ public class AsignacionAlumnoComision {
 	}
 
 	public void asignarNotaAAlumno(Integer notaParcial) {
-		if (notas.size() < 3) {
+		if (notas.size() < 2) {
 			notas.add(notaParcial);
 		}
 	}
@@ -34,9 +34,16 @@ public class AsignacionAlumnoComision {
 	}
 
 	public void asignarFinal(Integer notaFinal, Integer finalRendido) {
-		if (notas.get(finalRendido) != null && finalRendido == 3) {
+		if (notas.get(finalRendido) != null && finalRendido == 2) {
 			notas.set(finalRendido, notaFinal);
 		}
+	}
+
+	public boolean isAlumnoAprobado() {
+		if ((notas.get(0) >= 7 && notas.get(1) >= 7) || (notas.get(2) != null && notas.get(2) >= 4)) {
+			this.aprobado = true;
+		}
+		return this.aprobado;
 	}
 
 }

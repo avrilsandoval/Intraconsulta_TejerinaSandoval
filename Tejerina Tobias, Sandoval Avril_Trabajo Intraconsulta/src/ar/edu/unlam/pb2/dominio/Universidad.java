@@ -59,13 +59,10 @@ public class Universidad {
 		}
 	}
 
-	
-	
-	
 	public Alumno getAlumno(int dni) {
 		boolean seEncontro = false;
 		Alumno alumnoEncontrado = null;
-		for (int i = 0; i < this.alumnos.size() && seEncontro == false; i++) {
+		for (int i = 0; seEncontro == false; i++) {
 			if (this.alumnos.get(i).getDni().equals(dni)) {
 				alumnoEncontrado = this.alumnos.get(i);
 				seEncontro = true;
